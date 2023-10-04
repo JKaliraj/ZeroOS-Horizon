@@ -51,5 +51,18 @@ namespace ZeroOS_Horizon
                 Console.WriteLine(file);
             }
         }
+
+        public string ReadFile(string fileName)
+        {
+            if (files.ContainsKey(fileName))
+            {
+                return files[fileName];
+            }
+            else
+            {
+                return null; // File not found
+            }
+        }
+
     }
 }

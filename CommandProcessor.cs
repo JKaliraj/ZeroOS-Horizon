@@ -49,8 +49,14 @@ namespace ZeroOS_Horizon
                     Console.WriteLine("create [filename] [content] - Create a new file with the specified content.");
                     Console.WriteLine("edit [filename] [content] - Edit an existing file's content.");
                     Console.WriteLine("delete [filename] - Delete a file.");
+                    Console.WriteLine("list - List all files.");
+                    Console.WriteLine("read [filename] - Read the contents of a file.");
                     Console.WriteLine("shutdown - Shutdown the system.");
                     Console.WriteLine("restart - Restart the system.");
+                    Console.WriteLine("date - Display the current date.");
+                    Console.WriteLine("time - Display the current time.");
+                    Console.WriteLine("clear - Clear the screen.");
+
                     break;
 
                 case "history":
@@ -104,6 +110,46 @@ namespace ZeroOS_Horizon
 
                 case "list":
                     fileHandler.ListFiles();
+                    break;
+
+                case "read":
+                    if (parts.Length > 1)
+                    {
+                        string fileName = parts[1];
+                        string content = fileHandler.ReadFile(fileName);
+                        if (content != null)
+                        {
+                            Console.WriteLine($"Contents of '{fileName}':");
+                            Console.WriteLine(content);
+                        }
+                        else
+                        {
+                            Console.WriteLine($"File '{fileName}' not found.");
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Usage: read [filename]");
+                    }
+                    break;
+
+
+                case "about":
+                    Console.WriteLine("ZeroOS-Horizon");
+                    Console.WriteLine("Developed by JKaliraj");
+                    Console.WriteLine("GitHub Repository: https://github.com/JKaliraj/ZeroOS-Horizon");
+                    break;
+
+                case "date":
+                    Console.WriteLine("Current date: " + DateTime.Now.ToShortDateString());
+                    break;
+
+                case "time":
+                    Console.WriteLine("Current time: " + DateTime.Now.ToLongTimeString());
+                    break;
+
+                case "clear":
+                    Console.Clear();
                     break;
 
                 case "shutdown":
