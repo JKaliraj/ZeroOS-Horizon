@@ -29,7 +29,6 @@ Once you've successfully launched ZeroOS-Horizon, you can interact with it using
 - `echo Hello, ZeroOS-Horizon!` - Echoes the provided text.
 - `create myfile.txt This is the file content.` - Creates a new file named "myfile.txt" with the specified content.
 - `list` - Lists all files.
-- `changetheme DarkBlue White` - Changes the console theme to Dark Blue background and White text.
 - `date` - Displays the current date.
 - `time` - Displays the current time.
 - `clear` - Clears the screen.
